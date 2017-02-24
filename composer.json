@@ -1,0 +1,16 @@
+{
+    "name": "fabricekabongo/auth0symfonyapiauthenticator",
+    "description": "Integrate with Auth0 to bring API authentication to Symfony",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "auth0/auth0-php": "^5.0",
+        "symfony/security": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Fabrice Kabongo",
+            "email": "fabrice.k.kabongo@gmail.com"
+        }
+    ]
+}
