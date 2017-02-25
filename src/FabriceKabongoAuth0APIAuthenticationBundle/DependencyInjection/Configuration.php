@@ -10,13 +10,18 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('fk_auth0_api');
+        $rootNode = $treeBuilder->root('fabrice_kabongo_auth0_api_authentication_bundle');
 
         $rootNode
             ->children()
-                    ->arrayNode('valid_audiences')->end()
-                    ->arrayNode('authorized_iss')->end()
-                ->end()// twitter
+                ->arrayNode('valid_audiences')
+                    ->prototype('scalar')
+                    ->end()
+                ->end()
+                ->arrayNode('authorized_iss')
+                    ->prototype('scalar')
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

@@ -4,4 +4,4 @@ services:
         public: false
     fabricekabongo.auth0.services.apikeyuserprovider:
         class: FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiKeyUserProvider
-        arguments: ["%fabricekabongo.auth0.apiauthentication.valid_audiences%", "%fabricekabongo.auth0.apiauthentication.valid_audiences%"]
+        arguments: ["%fabricekabongo.auth0.apiauthentication.valid_audiences%", "%fabricekabongo.auth0.apiauthentication.authorized_iss%"]

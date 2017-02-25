@@ -56,15 +56,19 @@ security:
             simple_preauth:
                 authenticator: fabricekabongo.auth0.services.apikeyuserauthenticator
             provider: api_key_user_provider
+            anonymous:    true
 
     providers:
         api_key_user_provider:
             id: fabricekabongo.auth0.services.apikeyuserprovider
+     
+    access_control:
+        - { path: ^/youbaseurl, roles: ROLE_USER }
 ```
 
 ```yaml
 # app/config/config.yml
-fk_auth0_api:
+fabrice_kabongo_auth0_api_authentication_bundle:
     valid_audiences:
         - 'https://your.service.indentifier'
     authorized_iss:

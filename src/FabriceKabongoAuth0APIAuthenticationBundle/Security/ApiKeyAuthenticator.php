@@ -10,22 +10,20 @@ namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Security;
 
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
+use Symfony\Component\Security\Core\Authentication\SimplePreAuthenticatorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Http\Authentication\SimplePreAuthenticatorInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 
-class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface
+class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface, AuthenticationFailureHandlerInterface
 {
     public function createToken(Request $request, $providerKey)
     {
-        // or if you want to use an "apikey" header, then do something like this:
-         $apiKey = $request->headers->get('apikey');
-
-        if (!$apiKey) {
-            throw new BadCredentialsException();
-        }
+        $apiKey = $request->headers->get('x-apikey');
 
         return new PreAuthenticatedToken(
             'anon.',
@@ -54,10 +52,8 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface
         $user = $userProvider->loadUserByUsername($apiKey);
 
         if (!$user instanceof ApiUser) {
-            // CAUTION: this message will be returned to the client
-            // (so don't put any un-trusted messages / error strings here)
             throw new UnauthorizedHttpException(
-                'API Key "%s" does not exist.'
+                'API Key does not exist.'
             );
         }
 
@@ -68,4 +64,10 @@ class ApiKeyAuthenticator implements SimplePreAuthenticatorInterface
             $user->getRoles()
         );
     }
+
+    public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
+    {
+        return new Response("Authentication Failed.", Response::HTTP_UNAUTHORIZED);
+    }
+
 }

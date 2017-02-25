@@ -30,6 +30,7 @@ class ApiKeyUserProvider implements UserProviderInterface
         $verifierConfig = [
             'valid_audiences' => $validAudiences,
             'authorized_iss' => $authorizedISS,
+            'supported_algs' => ['RS256']
         ];
 
         if ($useCache) {
@@ -46,7 +47,20 @@ class ApiKeyUserProvider implements UserProviderInterface
         try {
 
             $tokenPayload = $this->verifier->verifyAndDecode($username);
-            $user = new ApiUser($username, null, []);
+            $roles = explode(' ', $tokenPayload->scope);
+
+            $roles = array_map(function ($item) {
+                $role = strtoupper($item);
+                $role = str_replace(':', '_', $role);
+
+                return "ROLE_" . $role;
+            }, $roles);
+
+            $roles[] = 'ROLE_USER';
+
+            $user = new ApiUser($username, $roles);
+
+            return $user;
         } catch (\Exception $ex) {
             return null;
         }

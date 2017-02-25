@@ -11,6 +11,7 @@ namespace FabriceKabongo\Auth0\APIAuthenticationBundle\DependencyInjection;
 use FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiKeyAuthenticator;
 use FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiKeyUserProvider;
 use FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiUser;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
@@ -31,7 +32,7 @@ class FabriceKabongoAuth0APIAuthenticationBundleExtension extends ConfigurableEx
 
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $loader->load('services.yml');
         $this->addClassesToCompile(array(
             ApiKeyUserProvider::class,
             ApiUser::class,
