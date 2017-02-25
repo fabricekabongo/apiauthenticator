@@ -61,3 +61,17 @@ security:
         api_key_user_provider:
             id: fabricekabongo.auth0.services.apikeyuserprovider
 ```
+
+```yaml
+# app/config/config.yml
+security:
+    # ...
+    
+    fk_auth0_api:
+        valid_audiences:
+            - 'https://your.service.indentifier'
+        authorized_iss:
+            - 'https://youraccount.auth0.com'
+```
+
+See [Auth0 APIs](https://manage.auth0.com/#/apis/)
