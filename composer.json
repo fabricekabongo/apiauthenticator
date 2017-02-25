@@ -1,11 +1,12 @@
 {
-    "name": "fabricekabongo/auth0symfonyapiauthenticator",
+    "name": "fabricekabongo/auth0-api-authentication-bundle",
     "description": "Integrate with Auth0 to bring API authentication to Symfony",
     "type": "library",
     "license": "MIT",
     "require": {
         "auth0/auth0-php": "^5.0",
-        "symfony/security": "^3.2"
+        "symfony/security": "^3.2",
+        "symfony/http-kernel": "^3.2"
     },
     "authors": [
         {

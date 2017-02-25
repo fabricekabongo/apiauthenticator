@@ -6,7 +6,7 @@
  * Time: 3:59 PM
  */
 
-namespace FabriceKabongo\Auth0\Symfony\API;
+namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Security;
 
 
 use Symfony\Component\HttpFoundation\Request;

@@ -6,11 +6,11 @@
  * Time: 4:53 PM
  */
 
-namespace FabriceKabongo\Auth0\Symfony\API;
+namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Security;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class ApiUser extends UserInterface
+class ApiUser implements UserInterface
 {
     /**
      * @var array
@@ -24,10 +24,10 @@ class ApiUser extends UserInterface
 
     /**
      * ApiUser constructor.
-     * @param array $roles
      * @param string $token
+     * @param array $roles
      */
-    public function __construct(array $roles, $token)
+    public function __construct($token, array $roles)
     {
         $this->roles = $roles;
         $this->token = $token;
