@@ -11,7 +11,7 @@ namespace FabriceKabongo\Auth0\APIAuthenticationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class FabriceKabongoAuth0APIAuthenticatorBundle extends Bundle
+class FabriceKabongoAuth0APIAuthenticationBundle extends Bundle
 {
 
 }
