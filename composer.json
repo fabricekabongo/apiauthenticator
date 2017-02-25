@@ -17,7 +17,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "FabriceKabongo\\Auth0\\APIAuthenticationBundle": "src/FabriceKabongoAuth0APIAuthenticationBundle"
+            "FabriceKabongo\\Auth0\\APIAuthenticationBundle\\": "src/FabriceKabongoAuth0APIAuthenticationBundle"
         }
     }
 }
