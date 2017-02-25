@@ -3,6 +3,7 @@
     "description": "Integrate with Auth0 to bring API authentication to Symfony",
     "type": "library",
     "license": "MIT",
+    "version": "v0.1.0",
     "require": {
         "auth0/auth0-php": "^5.0",
         "symfony/security": "^3.2",
@@ -13,5 +14,10 @@
             "name": "Fabrice Kabongo",
             "email": "fabrice.k.kabongo@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "FabriceKabongo\\Auth0\\APIAuthenticationBundle": "src/FabriceKabongoAuth0APIAuthenticationBundle"
+        }
+    }
 }
