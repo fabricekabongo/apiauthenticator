@@ -18,23 +18,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class FabriceKabongoAuth0APIAuthenticationBundleExtension extends ConfigurableExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    final public function load(array $configs, ContainerBuilder $container)
-    {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
-
-        self::parent($configs, $container);
-
-        $this->addClassesToCompile(array(
-            ApiKeyUserProvider::class,
-            ApiUser::class,
-            ApiKeyAuthenticator::class
-        ));
-    }
-
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
     {
         $container->setParameter(
@@ -45,6 +28,15 @@ class FabriceKabongoAuth0APIAuthenticationBundleExtension extends ConfigurableEx
             'fabricekabongo.auth0.apiauthentication.valid_audiences',
             $mergedConfig['authorized_iss']
         );
+
+
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.xml');
+        $this->addClassesToCompile(array(
+            ApiKeyUserProvider::class,
+            ApiUser::class,
+            ApiKeyAuthenticator::class
+        ));
     }
 
 }
