@@ -26,7 +26,7 @@ class FabriceKabongoAuth0APIAuthenticationBundleExtension extends ConfigurableEx
             $mergedConfig['valid_audiences']
         );
         $container->setParameter(
-            'fabricekabongo.auth0.apiauthentication.valid_audiences',
+            'fabricekabongo.auth0.apiauthentication.authorized_iss',
             $mergedConfig['authorized_iss']
         );
 
