@@ -1,6 +1,8 @@
 Installation
 ============
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfb8d9a8aa6c4e4995b7ea75a6cc2206)](https://www.codacy.com/app/fabrice-k-kabongo/apiauthenticator?utm_source=github.com&utm_medium=referral&utm_content=fabricekabongo/apiauthenticator&utm_campaign=badger)
+
 Step 1: Download the Bundle
 ---------------------------
 
