@@ -46,7 +46,9 @@ class AppKernel extends Kernel
     // ...
 }
 
-```Then, set the authenticator and provider to these values on `app/config/security.yml`:
+```
+
+Then, set the authenticator and provider to these values on `app/config/security.yml`:
 
 ```yaml
 # app/config/security.yml
