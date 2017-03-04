@@ -1,6 +1,10 @@
 Installation
 ============
 
+Badges:
+-------
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfb8d9a8aa6c4e4995b7ea75a6cc2206)](https://www.codacy.com/app/fabrice-k-kabongo/apiauthenticator?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabricekabongo/apiauthenticator&amp;utm_campaign=Badge_Grade)
+
 Step 1: Download the Bundle
 ---------------------------
 
@@ -42,7 +46,9 @@ class AppKernel extends Kernel
     // ...
 }
 
-```Then, set the authenticator and provider to these values on `app/config/security.yml`:
+```
+
+Then, set the authenticator and provider to these values on `app/config/security.yml`:
 
 ```yaml
 # app/config/security.yml
