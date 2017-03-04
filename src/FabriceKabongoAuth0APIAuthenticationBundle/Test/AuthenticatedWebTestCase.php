@@ -6,7 +6,7 @@
  * Time: 6:16 PM
  */
 
-namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Tests;
+namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Test;
 
 use FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiUser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

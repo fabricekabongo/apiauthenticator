@@ -82,3 +82,32 @@ fabrice_kabongo_auth0_api_authentication_bundle:
 ```
 
 See [Auth0 APIs](https://manage.auth0.com/#/apis/)
+
+
+Step 3: write functional Test for your API
+-------------------------
+
+Create a functional test and extend the `FabriceKabongo\Auth0\APIAuthenticationBundle\Test\AuthenticatedWebTestCase`
+In your test cases create a client and pass it to the `setUpClient` methods with the role you want the user to have
+
+```php
+public function testMyOwnTestCase() 
+{
+    $client = $this->setUpClient(
+        static::createClient(),
+        ['ROLE_READ_PROFIL', 'ROLE_EDIT_PAYMENTINFO']
+    );
+    
+    // do your http calls and do your test as usual
+}
+```
+
+
+Step 4: Help me make this better and simpler. Please :)
+--------------------------------------------
+
+Todo: Write unit test (how will I mock the JWS verifier)
+Todo: Create a new branch for other versions of Symfony (if works differently)
+Todo: Introduce awesome new features.
+
+I love this project and will continue to work on it. Please do the same.
