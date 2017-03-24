@@ -8,6 +8,8 @@
 
 namespace FabriceKabongo\Auth0\APIAuthenticationBundle\Security;
 
+use Auth0\SDK\Helpers\Cache\CacheHandler;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Auth0\SDK\JWTVerifier;
@@ -23,9 +25,9 @@ class ApiKeyUserProvider implements UserProviderInterface
      * ApiKeyUserProvider constructor.
      * @param $validAudiences
      * @param $authorizedISS
-     * @param bool $useCache
+     * @param null $cacheHandler
      */
-    public function __construct($validAudiences, $authorizedISS, $useCache = false)
+    public function __construct($validAudiences, $authorizedISS, $cacheHandler = null)
     {
         $verifierConfig = [
             'valid_audiences' => $validAudiences,
@@ -33,8 +35,8 @@ class ApiKeyUserProvider implements UserProviderInterface
             'supported_algs' => ['RS256']
         ];
 
-        if ($useCache) {
-            $verifierConfig['cache']  = new FileSystemCacheHandler();
+        if (!is_null($cacheHandler) && $cacheHandler instanceof CacheHandler) {
+            $verifierConfig['cache']  = $cacheHandler;
         }
 
         $this->verifier = new JWTVerifier($verifierConfig);
