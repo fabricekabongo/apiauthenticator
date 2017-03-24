@@ -1,7 +1,7 @@
 services:
     fabricekabongo.auth0.services.cachehandler:
         class: FabriceKabongo\Auth0\APIAuthenticationBundle\Cache\FileCacheHandler
-        arguments: ["%kernel.cache_dir%/clients"]
+        arguments: ["%kernel.cache_dir%/clients/"]
     fabricekabongo.auth0.services.apikeyuserauthenticator:
         class:  FabriceKabongo\Auth0\APIAuthenticationBundle\Security\ApiKeyAuthenticator
         public: false
